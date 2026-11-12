@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adithya Chakravarty | Portfolio</title>
+<meta name="description" content="Student portfolio of Adithya Chakravarty, BBA (Hons.) at TAPMI Bengaluru. Business, data, AI and creativity.">
+<style>
+:root{
+  --bg:#0b0d12;--bg2:#12151c;--card:#171b24;--line:#262b38;
+  --text:#eef0f5;--muted:#9aa3b5;--accent:#7c9cff;--accent2:#ff8fb1;
+}
+@media (prefers-color-scheme: light){
+  :root{--bg:#f7f8fb;--bg2:#ffffff;--card:#ffffff;--line:#e3e6ee;--text:#12151c;--muted:#5a6478;--accent:#3d5afe;--accent2:#e0457b}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;font-size:14px}
+nav ul{display:flex;gap:20px;list-style:none;font-size:14px;color:var(--muted)}
+nav ul a:hover{color:var(--text)}
+@media(max-width:640px){nav ul{gap:12px;font-size:12px}}
+.hero{padding:90px 0 70px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:99px;margin-bottom:24px}
+h1{font-size:clamp(42px,9vw,92px);line-height:1;letter-spacing:-.03em;font-weight:800}
+h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.kw{margin-top:18px;color:var(--muted);letter-spacing:.2em;font-size:12px;text-transform:uppercase}
+.lead{margin-top:22px;max-width:620px;color:var(--muted);font-size:18px}
+.btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid var(--line);cursor:pointer;background:transparent;color:var(--text);font-family:inherit}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.pillars div,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.pillars h3{font-size:18px;margin-bottom:6px}
+.pillars p{color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.facts div{padding:14px 0;border-top:1px solid var(--line)}
+.facts small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:760px){.pillars,.facts{grid-template-columns:1fr}}
+section{padding:70px 0}
+section.alt{background:var(--bg2)}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+h2{font-size:clamp(28px,5vw,44px);letter-spacing:-.02em;margin:8px 0 10px}
+.sub{color:var(--muted);max-width:620px;margin-bottom:34px}
+.timeline{display:grid;gap:14px}
+.step{display:flex;gap:18px;align-items:flex-start}
+.step .n{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-weight:700;color:var(--accent)}
+.step small{color:var(--accent2);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.step h3{font-size:18px}
+.step p{color:var(--muted);font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.card h3{font-size:18px;margin-bottom:4px}
+.card .count{font-size:12px;color:var(--muted);margin-bottom:14px}
+.skill{padding:12px 0;border-top:1px solid var(--line)}
+.skill b{display:block}
+.skill span{color:var(--muted);font-size:14px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chip{padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-size:14px;font-family:inherit}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.showing{font-size:13px;color:var(--muted);margin-bottom:20px}
+.proj{display:flex;flex-direction:column;gap:10px}
+.proj .cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:700}
+.proj h3{font-size:20px}
+.proj p{color:var(--muted);font-size:14px}
+.proj ul{display:flex;gap:6px;flex-wrap:wrap;list-style:none}
+.proj li{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.proj button{margin-top:auto;align-self:flex-start}
+.proj.hide{display:none}
+.about-list{display:grid;gap:12px;margin-top:24px}
+.about-list div{padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:15px}
+.about-list b{color:var(--accent)}
+.contact{display:grid;gap:14px;margin-top:20px}
+.contact .card small{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.contact .card p{font-size:16px;margin:4px 0 12px;word-break:break-all}
+.contact .row{display:flex;gap:8px;flex-wrap:wrap}
+.btn.sm{padding:8px 14px;font-size:13px}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+dialog{border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--text);padding:28px;max-width:480px;width:calc(100% - 32px);margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog h3{font-size:22px;margin:6px 0 10px}
+dialog p{color:var(--muted);margin-bottom:18px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translateX(-50%)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Home">AC</a>
+    <ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="tag">Student Portfolio · BBA (Hons.) · TAPMI Bengaluru · 2026</span>
+    <h1>ADITHYA<br><span>CHAKRAVARTY</span></h1>
+    <p class="kw">Business • Data • AI • Creativity</p>
+    <p class="lead">I'm a BBA (Hons.) student at TAPMI Bengaluru, interested in the place where business, data, technology and creative problem-solving meet. I like working with business data, learning how AI is used, and making creative work.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">Explore My Work</a>
+      <a class="btn" href="#connect">Let's Connect</a>
+    </div>
+    <div class="pillars">
+      <div><h3>Analytics</h3><p>Making sense of business data.</p></div>
+      <div><h3>AI</h3><p>Seeing how AI tools and agents change the way we work and learn.</p></div>
+      <div><h3>Creative</h3><p>Photography, video editing and presentation design.</p></div>
+    </div>
+    <div class="facts">
+      <div><small>Studying</small>BBA (Hons.), 1st Year</div>
+      <div><small>Institution</small>TAPMI Bengaluru</div>
+      <div><small>Interests</small>Analytics, AI, creative work</div>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="academics">
+  <div class="wrap">
+    <span class="eyebrow">Academics</span>
+    <h2>Where I've studied</h2>
+    <p class="sub">School, then higher secondary, and now my first year of BBA (Hons.) at TAPMI Bengaluru.</p>
+    <div class="timeline">
+      <div class="card step"><div class="n">1</div><div><small>Where I started</small><h3>Indus Valley International School</h3><p>School Education · Until Grade 10</p></div></div>
+      <div class="card step"><div class="n">2</div><div><small>Next</small><h3>Sri Chaitanya</h3><p>Higher Secondary Education · Grade 11 &amp; 12</p></div></div>
+      <div class="card step"><div class="n">3</div><div><small>Right now</small><h3>TAPMI Bengaluru</h3><p>BBA (Hons.) · 1st Year · Currently pursuing</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <span class="eyebrow">Skills</span>
+    <h2>What I work with</h2>
+    <p class="sub">The tools I use to work with data, and to make ideas look good.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>Business &amp; Analytics</h3><div class="count">2 skills</div>
+        <div class="skill"><b>Microsoft Excel</b><span>I use it to organise, calculate and analyse data.</span></div>
+        <div class="skill"><b>Power BI</b><span>I build dashboards that make business data easy to read.</span></div>
+      </div>
+      <div class="card">
+        <h3>Creative &amp; Visual</h3><div class="count">3 skills</div>
+        <div class="skill"><b>Presentation Design</b><span>I design slides that make ideas easy to follow.</span></div>
+        <div class="skill"><b>Photography</b><span>I enjoy framing and capturing a good image.</span></div>
+        <div class="skill"><b>Video Editing</b><span>I cut footage into something clear and engaging.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <span class="eyebrow">Projects</span>
+    <h2>Selected work</h2>
+    <p class="sub">Five projects I've worked on across AI, research, analytics, accounting and communication. Click one to read more.</p>
+    <div class="filters" id="filters">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="AI">AI</button>
+      <button class="chip" data-f="Research">Research</button>
+      <button class="chip" data-f="Analytics">Analytics</button>
+      <button class="chip" data-f="Accounting">Accounting</button>
+      <button class="chip" data-f="Communication">Communication</button>
+    </div>
+    <p class="showing" id="showing">Showing 5 of 5 projects</p>
+    <div class="grid2" id="projects-grid">
+      <article class="card proj" data-cat="AI">
+        <span class="cat">Artificial Intelligence / Business Technology</span>
+        <h3>TLM AI Agent</h3>
+        <p>I worked on an AI-powered agent for TLM, looking at how AI can support task automation, information processing and intelligent interaction.</p>
+        <ul><li>AI agents</li><li>Automation</li><li>Business technology</li></ul>
+        <button class="btn sm open">View project</button>
+      </article>
+      <article class="card proj" data-cat="Research">
+        <span class="cat">Research / AI / Education</span>
+        <h3>AI &amp; Education: Ethnographic Study</h3>
+        <p>I studied how students use AI tools and how AI is changing learning, academic workflows and their educational experience.</p>
+        <ul><li>Ethnography</li><li>Qualitative research</li><li>Observation</li></ul>
+        <button class="btn sm open">View project</button>
+      </article>
+      <article class="card proj" data-cat="Analytics">
+        <span class="cat">Data Analytics / Power BI</span>
+        <h3>Café Multi-Branch Power BI Dashboard</h3>
+        <p>I built a three-page interactive Power BI dashboard that turns a multi-branch café's data into clear visuals.</p>
+        <ul><li>Power BI</li><li>Data visualization</li><li>Dashboard design</li></ul>
+        <button class="btn sm open">View project</button>
+      </article>
+      <article class="card proj" data-cat="Accounting">
+        <span class="cat">Accounting / Financial Analysis</span>
+        <h3>DLF Financial Accounting Analysis</h3>
+        <p>I analysed DLF, a NIFTY 100 company, and built its full accounting cycle from journal to balance sheet.</p>
+        <ul><li>Financial accounting</li><li>Financial statements</li><li>NIFTY 100</li></ul>
+        <button class="btn sm open">View project</button>
+      </article>
+      <article class="card proj" data-cat="Communication">
+        <span class="cat">Communication / Brand Analysis</span>
+        <h3>Rhetoric Analysis of Raj Shamani</h3>
+        <p>I analysed how Raj Shamani builds his brand as a communicator, then proposed how he could reposition it.</p>
+        <ul><li>Rhetoric</li><li>Personal branding</li><li>SOAP &amp; SWOT</li></ul>
+        <button class="btn sm open">View project</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <h2>Curious about how things connect.</h2>
+    <p class="sub">I'm a first-year BBA (Hons.) student at TAPMI Bengaluru. I want to understand how businesses run, what their data says and how AI is changing things, and I like making all of it clear for other people.</p>
+    <div class="about-list">
+      <div><b>Business ×</b> BBA (Hons.) at TAPMI Bengaluru, with a full accounting cycle on DLF.</div>
+      <div><b>Data ×</b> Excel, Power BI and a dashboard for a multi-branch café.</div>
+      <div><b>AI ×</b> An agent for TLM and a study of AI in education.</div>
+      <div><b>Creativity</b> Presentation design, photography and video editing.</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="connect">
+  <div class="wrap">
+    <span class="eyebrow">Connect</span>
+    <h2>Let's connect</h2>
+    <p class="sub">Interested in collaborating, exchanging ideas, or simply connecting? I'd love to hear from you.</p>
+    <div class="contact">
+      <div class="card">
+        <small>Email me</small>
+        <p>karpuram.tapmiblr2026@learner.manipal.edu</p>
+        <div class="row"><button class="btn sm copy" data-v="karpuram.tapmiblr2026@learner.manipal.edu">Copy</button><a class="btn sm" href="mailto:karpuram.tapmiblr2026@learner.manipal.edu">Open mail app</a></div>
+      </div>
+      <div class="card">
+        <small>Personal email</small>
+        <p>adithyachakri2009@gmail.com</p>
+        <div class="row"><button class="btn sm copy" data-v="adithyachakri2009@gmail.com">Copy</button><a class="btn sm" href="mailto:adithyachakri2009@gmail.com">Open mail app</a></div>
+      </div>
+      <div class="card">
+        <small>LinkedIn</small>
+        <p>linkedin.com/in/adithya-chakravarty-649145431</p>
+        <div class="row"><a class="btn sm" href="https://www.linkedin.com/in/adithya-chakravarty-649145431" target="_blank" rel="noopener">Open LinkedIn</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Adithya Chakravarty · BBA (Hons.), TAPMI Bengaluru · 2026</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<dialog id="dlg">
+  <span class="eyebrow" id="d-cat"></span>
+  <h3 id="d-title"></h3>
+  <p id="d-desc"></p>
+  <button class="btn primary" id="d-close">Close</button>
+</dialog>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.proj'));
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var showing=document.getElementById('showing');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on')});
+      c.classList.add('on');
+      var f=c.dataset.f,n=0;
+      cards.forEach(function(p){
+        var ok=f==='all'||p.dataset.cat===f;
+        p.classList.toggle('hide',!ok);
+        if(ok)n++;
+      });
+      showing.textContent='Showing '+n+' of '+cards.length+' projects';
+    });
+  });
+  var dlg=document.getElementById('dlg');
+  cards.forEach(function(p){
+    p.querySelector('.open').addEventListener('click',function(){
+      document.getElementById('d-cat').textContent=p.querySelector('.cat').textContent;
+      document.getElementById('d-title').textContent=p.querySelector('h3').textContent;
+      document.getElementById('d-desc').textContent=p.querySelector('p').textContent;
+      if(dlg.showModal)dlg.showModal();
+    });
+  });
+  document.getElementById('d-close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  var toast=document.getElementById('toast');
+  [].forEach.call(document.querySelectorAll('.copy'),function(b){
+    b.addEventListener('click',function(){
+      var v=b.dataset.v;
+      function done(){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1500)}
+      if(navigator.clipboard){navigator.clipboard.writeText(v).then(done,done)}else{done()}
+    });
+  });
+})();
+</script>
+</body>
+</html>
